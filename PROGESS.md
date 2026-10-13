@@ -40,3 +40,8 @@
 - La raison utilitaire offert/payant s'affiche uniquement dans le récap (`reasonPaid` / `reasonFree`). Sous la date : juste le jour formaté.
 - Coupure entre services : encadré tableau (coupure / dont incluse / supplément détaillé / durée totale) au lieu d'une phrase.
 - Prochaine étape : étape 6, plugin WP `cc-devis` (shortcode, config PHP injectée) puis étape 7 (signature + coordonnées + email/webhook).
+
+## 2026-10-13 — Partage GitHub (en cours)
+- Dépôt git local initialisé (branche `main`, 1er commit). Ajout de `README.md`, `.gitignore`, `index.html` racine (redirige vers `prototype/`, pour GitHub Pages).
+- Reste côté Pierre : créer le dépôt sur github.com, pousser (GitHub Desktop), activer Pages, inviter l'associé. Retours via Issues.
+- Piège : GitHub Pages sur dépôt PRIVÉ = offre payante (Pro/Team). Le CLI `gh` n'est pas installé.
