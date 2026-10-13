@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "prototype",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["-e", "const h=require('http'),f=require('fs'),p=require('path');const R='/Users/pierreboschet/Desktop/CLAUDE/Devis auto site CC';const T={'.html':'text/html','.css':'text/css','.js':'text/javascript','.json':'application/json'};h.createServer((q,s)=>{let u=decodeURIComponent(q.url.split('?')[0]);if(u==='/')u='/prototype/index.html';const fp=p.join(R,p.normalize(u));if(!fp.startsWith(R))return s.writeHead(403).end();f.readFile(fp,(e,d)=>{if(e)return s.writeHead(404).end('404');s.writeHead(200,{'Content-Type':(T[p.extname(fp)]||'application/octet-stream')+'; charset=utf-8','Cache-Control':'no-store'}).end(d)})}).listen(8765,()=>console.log('http://localhost:8765'))"],
+      "port": 8765
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "_lisezmoi": "Tous les prix sont en HT. Le TTC est calculé avec vatRate. Les clés commençant par _ sont des commentaires ignorés par le code.",
+
+  "currency": "EUR",
+  "vatRate": 0.20,
+  "calendlyUrl": "https://calendly.com/TODO-lien-cocktail-coast",
+  "contactUrl": "https://cocktail-coast.com/contact/",
+
+  "company": {
+    "_note": "Point de départ des trajets. Coordonnées de la rue Stendhal (géocodage Géoplateforme) — remplace par les coordonnées exactes du local si besoin.",
+    "address": "2 rue Stendhal, 33160 Saint-Médard-en-Jalles",
+    "lon": -0.707028,
+    "lat": 44.891187
+  },
+
+  "projectManagement": {
+    "_note": "Ligne fixe présente sur chaque devis.",
+    "label": "Gestion de projet - Cocktails & boissons",
+    "priceHT": 175.00,
+    "intro": "Gestion de votre prestation bar par un·e chef·fe de projet :",
+    "description": [
+      "Création et ajustements de votre proposition selon vos besoins et votre budget",
+      "Accompagnement de la signature du devis à l'événement",
+      "Élaboration et suivi de la feuille de route pour un déroulement fluide de l'événement",
+      "Sélection et achat d'ingrédients nécessaires à la prestation",
+      "Élaboration de nos préparations et bases de cocktails faites maison"
+    ]
+  },
+
+  "utilityVan": {
+    "_note": "Location d'utilitaire : gratuite, sauf le samedi entre mai (5) et octobre (10) inclus.",
+    "label": "Location d'utilitaire",
+    "reasonPaid": "Samedi en haute saison (mai à octobre)",
+    "reasonFree": "Offerte : hors samedi de mai à octobre",
+    "paidWeekdays": [6],
+    "paidMonthFrom": 5,
+    "paidMonthTo": 10,
+    "priceHT": 155.00
+  },
+
+  "travel": {
+    "_note": "Frais = distance aller-retour x pricePerKmHT. Gratuit si la distance ALLER est inférieure à freeUnderKmOneWay. Devis bloqué au-delà de maxKmOneWay (aller).",
+    "label": "Frais de déplacement",
+    "pricePerKmHT": 0.60,
+    "freeUnderKmOneWay": 30,
+    "maxKmOneWay": 300
+  },
+
+  "services": {
+    "_note": "Durées en heures. Créneaux proposés par pas de stepMinutes entre earliestStart et latestEnd (latestEnd peut être après minuit).",
+    "minDurationHours": 2,
+    "stepMinutes": 30,
+    "earliestStart": "10:00",
+    "latestEnd": "04:00",
+    "maxPauseHours": 3,
+    "pauseSurchargePerStaffPerHourHT": 50.00,
+    "pauseSurchargeLabel": "Supplément coupure entre les services"
+  },
+
+  "cocktails": {
+    "_note_reco": "Recommandation en cocktails/personne selon la durée TOTALE de service (S1 + S2). upToHours = borne haute incluse ; null = au-delà.",
+    "recommendation": [
+      { "upToHours": 3,    "perPerson": 2 },
+      { "upToHours": 4,    "perPerson": 2.5 },
+      { "upToHours": 5,    "perPerson": 3 },
+      { "upToHours": 5.5,  "perPerson": 3.5 },
+      { "upToHours": null, "perPerson": 4 }
+    ],
+    "_note_adjust": "Le client peut ajuster de +/- adjustPerPerson cocktail par personne autour de la reco.",
+    "adjustPerPerson": 0.5,
+    "sliderStep": 1,
+    "buttonStep": 5,
+    "_note_tiers": "Prix unitaire dégressif. mode 'global' = toute la commande au prix du palier atteint. En dehors des paliers (moins de 100, 300 et plus) -> devis sur mesure (Calendly). unitHT = TTC / 1,2 (6 décimales pour retomber pile sur le TTC).",
+    "tierMode": "global",
+    "tiers": [
+      { "min": 100, "max": 149, "unitHT": 9.083333, "_ttc": 10.90 },
+      { "min": 150, "max": 199, "unitHT": 8.250000, "_ttc": 9.90 },
+      { "min": 200, "max": 299, "unitHT": 7.416667, "_ttc": 8.90 },
+      { "min": 300, "max": 399, "unitHT": 6.583333, "_ttc": 7.90 }
+    ],
+    "label": "Cocktails"
+  },
+
+  "staff": {
+    "_note": "Dispositif affiché pour information (prix inclus dans les cocktails). maxPax = borne haute incluse. Au-delà de la dernière ligne : overflow.",
+    "label": "Équipe sur place",
+    "table": [
+      { "maxPax": 60,  "chef": 1, "bartenders": 0, "commis": 0 },
+      { "maxPax": 75,  "chef": 1, "bartenders": 0, "commis": 1 },
+      { "maxPax": 110, "chef": 1, "bartenders": 1, "commis": 0 },
+      { "maxPax": 150, "chef": 1, "bartenders": 1, "commis": 1 }
+    ],
+    "overflow": { "chef": 1, "bartenders": 2, "commisPerPaxAbove": 50, "abovePax": 150 }
+  },
+
+  "beer": {
+    "_note": "Bière en libre-service. Recommandation affichée : 50 cl/personne, ~1 fût de 30 L pour 60 personnes.",
+    "tooltip": "Recommandation : 50cl par personne pour un vin d'honneur (soit environ 1 fût pour 60 personnes). Vous pourrez ajuster ce volume.",
+    "selfServiceNote": "* Bière en libre-service. Elle peut être servie par nos barmans pendant leur propre service.",
+    "kegs": {
+      "blonde": { "label": "Fût 30 L — Blonde", "priceHT": 90.00 },
+      "ipa":    { "label": "Fût 30 L — IPA",    "priceHT": 145.00 }
+    },
+    "maxKegsPerType": 20,
+    "tap": { "label": "Location tireuse", "priceHT": 90.00, "freeFromKegs": 2 },
+    "service": { "label": "Service bière sur les horaires des bartenders", "priceHT": 280.00 },
+    "earlyDelivery": { "label": "Livraison anticipée", "fixedHT": 90.00, "addTravelRoundTrip": true },
+    "latePickup": { "label": "Reprise tardive", "fixedHT": 90.00, "addTravelRoundTrip": true },
+    "glassesPerKeg": 90,
+    "glassware": {
+      "ecocup": { "label": "Ecocups", "unitHT": 0.35 },
+      "verre":  { "label": "Verres",  "unitHT": 0.90 }
+    },
+    "defaultGlassware": "ecocup"
+  }
+}

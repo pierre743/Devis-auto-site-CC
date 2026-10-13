@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Devis bar à cocktails — Cocktail Coast (prototype)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/devis.css">
+  <style>body { margin: 0; background: #FAF8F5; }</style>
+</head>
+<body>
+  <div id="cc-devis"></div>
+
+  <script src="../js/quote-engine.js"></script>
+  <script src="../js/geo.js"></script>
+  <script src="../js/devis-ui.js"></script>
+  <script>
+    // Dans WordPress, la config sera injectée par PHP (window.CC_DEVIS_CONFIG). Ici on la charge depuis le JSON.
+    fetch('../config/pricing-config.json')
+      .then(function (r) { return r.json(); })
+      .then(function (cfg) {
+        window.ccDevis = CCDevis.mount(document.getElementById('cc-devis'), cfg, {
+          onValidate: function (quote, state) {
+            console.log('Validation', quote, state);
+            alert('Étape 7 à venir : signature + coordonnées.\nTotal : ' + quote.totals.ttc + ' € TTC');
+          }
+        });
+      });
+  </script>
+</body>
+</html>
